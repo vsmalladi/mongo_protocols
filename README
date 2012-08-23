@@ -1,0 +1,10 @@
+This is a test instance of using MongoDB and Django.
+
+I am using this to test housing protocol in a nosql solution.
+
+To install the same enviornment you can use:
+pip install -r requirements.txt
+
+NOTE: There is no data in this repository. 
+
+

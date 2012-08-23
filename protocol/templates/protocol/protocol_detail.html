@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+    <div class="page-header">
+        <h1>{{ protocol.name }}</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>{{ protocol.protocol_type }}<p>
+    <p>{{ protocol.created_at }}</p>
+    <p>{{ protocol.author }} </p>
+    <p>{{ protocol.description }}</p>
+    <hr>
+    <h2>Sections</h2>
+    {% if protocol.sections %}
+        {% for section in protocol.sections %}
+            <div>
+                <h3>{{ section.section_no }} {{ section.title }}</h3>
+                <p>{{ section.description }}</p>
+            </div>
+            {% if section.steps %}
+                {% for step in section.steps %}
+                <ul>
+                    <li>{{ step.description }}</li>
+                </ul>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

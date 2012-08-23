@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for protocol in protocols_list %}
+        <h2><a href="{% url protocol slug=protocol.slug %}">{{ protocol.name }}</a></h2>
+        <p>{{ protocol.descritpion|truncatewords:20 }}</p>
+        <p>
+            {{ protocol.created_at }} |
+            {% with total=protocol.sections|length %}
+                {{ total }} section{{ total|pluralize }}
+            {% endwith %}
+        </p>
+    {% endfor %}
+{% endblock %}
+
